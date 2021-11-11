@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "dependencies": {
+    "ts-node": "^10.4.0"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
