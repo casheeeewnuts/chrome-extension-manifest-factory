@@ -27,7 +27,44 @@ export namespace Manifest {
         },
         content_capabilities: string,
         content_scripts: ContentScript[],
-        host_permissions: Chrome.Permission[]
+        homepage_url: string
+        host_permissions: Chrome.Permission[],
+        import: Module[],
+        incognito: "spanning" | "split" | "not_allowed",
+        input_components: string,
+        key: string,
+        minimum_chrome_version: string,
+        nacl_modules: NaclModule[]
+        natively_connectable: string,
+        oauth2: string,
+        offline_enabled: boolean,
+        omnibox: {
+            keyword: string,
+        },
+        optional_permissions: Chrome.Permission[],
+        options_page: string,
+        options_ui: {
+            page: string,
+            open_in_tab: boolean
+        }
+        permissions: Chrome.Permission,
+        platforms: any, // TODO remove any
+        replacement_web_app: any // TODO remove any
+        requirements: string,
+        sandbox: any[],
+        short_name: string,
+        storage: {
+            // declared as JSON Schema https://developer.chrome.com/docs/extensions/mv3/manifest/storage/
+            managed_schema: string
+        },
+        system_indicator: any,
+        tts_engine: {
+            voices: Chrome.Tts.Voice[]
+        },
+        update_url: string,
+        version_name: string,
+        web_accessible_resources: any[]
+
     }>
 
     type Action = Partial<{
@@ -69,6 +106,15 @@ export namespace Manifest {
     }>
 
     type DocumentState = "document_idle" | "document_start" | "document_end"
+    type Module = {
+        id: string,
+        minimum_version?: string
+    }
+
+    type NaclModule = {
+        path: string,
+        mime_type: string
+    }
 
     export namespace Chrome {
         export type SettingsOverrides = {
@@ -88,23 +134,6 @@ export namespace Manifest {
             but in example, substitute "myPage.html"
              */
             pageToOverride: string | "bookmarks" | "history" | "newTab"
-        }
-
-        type SearchProvider = {
-            name: string,
-            keyword: string,
-            search_url: string,
-            favicon_url: string,
-            suggest_url: string,
-            instant_url: string,
-            image_url: string,
-            search_url_post_params: string,
-            suggest_url_post_params: string,
-            instant_url_post_params: string,
-            image_url_post_params: string,
-            alternate_urls: string[],
-            encoding: string,
-            is_default: boolean
         }
 
         // declared at https://developer.chrome.com/docs/extensions/mv3/declare_permissions/#manifest
@@ -175,5 +204,31 @@ export namespace Manifest {
             | "webNavigation"
             | "webRequest"
             | "webRequestBlocking"
+
+        export namespace Tts {
+            type Event = "start" | "end" | "marker"
+
+            export type Voice = {
+                voice_name: string,
+                lang: string,
+                event_types: Event[]
+            }
+        }
+        type SearchProvider = {
+            name: string,
+            keyword: string,
+            search_url: string,
+            favicon_url: string,
+            suggest_url: string,
+            instant_url: string,
+            image_url: string,
+            search_url_post_params: string,
+            suggest_url_post_params: string,
+            instant_url_post_params: string,
+            image_url_post_params: string,
+            alternate_urls: string[],
+            encoding: string,
+            is_default: boolean
+        }
     }
 }
