@@ -1,0 +1,11 @@
+{
+  "name": "chrome-extension-manifest-factory",
+  "version": "0.1.0",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "typescript": "^4.4.4"
+  }
+}
