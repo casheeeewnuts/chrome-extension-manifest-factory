@@ -1,3 +1,5 @@
+// https://developer.chrome.com/docs/extensions/mv3/manifest/
+
 export namespace Manifest {
     export type Manifest = RequiredFields & RecommendedFields & OptionalFields
 
