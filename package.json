@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "license": "MIT",
   "bin": {
-    "manifest-factory": "./dist/cli.js"
+    "manifest-factory": "./dist/bin"
   },
   "dependencies": {
     "typescript": "^3.9.5"
@@ -11,5 +11,8 @@
   "devDependencies": {
     "@types/node": "^16.11.7",
     "ts-node": "^10.4.0"
+  },
+  "scripts": {
+    "prepublish": "yarn tsc"
   }
 }

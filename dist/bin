@@ -1,0 +1,3 @@
+#!/usr/local/env node
+
+require("./cli.js")
