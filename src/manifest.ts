@@ -1,7 +1,7 @@
 // https://developer.chrome.com/docs/extensions/mv3/manifest/
 
 export namespace Manifest {
-    export type Manifest = RequiredFields & RecommendedFields & OptionalFields
+    export type Json = RequiredFields & RecommendedFields & OptionalFields
 
     type RequiredFields = {
         manifest_version: 3,
