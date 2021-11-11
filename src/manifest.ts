@@ -26,7 +26,8 @@ export namespace Manifest {
             [K: string]: Command
         },
         content_capabilities: string,
-
+        content_scripts: ContentScript[],
+        host_permissions: Chrome.Permission[]
     }>
 
     type Action = Partial<{
@@ -105,5 +106,74 @@ export namespace Manifest {
             encoding: string,
             is_default: boolean
         }
+
+        // declared at https://developer.chrome.com/docs/extensions/mv3/declare_permissions/#manifest
+        export type Permission =
+            "activeTab"
+            | "alarms"
+            | "background"
+            | "bookmarks"
+            | "browsingData"
+            | "certificateProvider"
+            | "clipboardRead"
+            | "clipboardWrite"
+            | "contentSettings"
+            | "contextMenus"
+            | "cookies"
+            | "debugger"
+            | "declarativeContent"
+            | "declarativeNetRequest"
+            | "declarativeNetRequestFeedback"
+            | "declarativeWebRequest"
+            | "desktopCapture"
+            | "documentScan"
+            | "downloads"
+            | "enterprise.deviceAttributes"
+            | "enterprise.hardwarePlatform"
+            | "enterprise.networkingAttributes"
+            | "enterprise.platformKeys"
+            | "experimental"
+            | "fileBrowserHandler"
+            | "fileSystemProvider"
+            | "fontSettings"
+            | "gcm"
+            | "geolocation"
+            | "history"
+            | "identity"
+            | "idle"
+            | "loginState"
+            | "management"
+            | "nativeMessaging"
+            | "notifications"
+            | "pageCapture"
+            | "platformKeys"
+            | "power"
+            | "printerProvider"
+            | "printing"
+            | "printingMetrics"
+            | "privacy"
+            | "processes"
+            | "proxy"
+            | "scripting"
+            | "search"
+            | "sessions"
+            | "signedInDevices"
+            | "storage"
+            | "system.cpu"
+            | "system.display"
+            | "system.memory"
+            | "system.storage"
+            | "tabCapture"
+            | "tabGroups"
+            | "tabs"
+            | "topSites"
+            | "tts"
+            | "ttsEngine"
+            | "unlimitedStorage"
+            | "vpnProvider"
+            | "wallpaper"
+            | "webNavigation"
+            | "webRequest"
+            | "webRequestBlocking"
     }
 }
