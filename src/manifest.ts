@@ -20,6 +20,11 @@ export namespace Manifest {
         background: Background,
         chrome_settings_overrides: Chrome.SettingsOverrides,
         chrome_url_overrides: Chrome.UrlOverrides,
+        commands: {
+            [K: string]: Command
+        },
+        content_capabilities: string,
+
     }>
 
     type Action = Partial<{
@@ -38,6 +43,29 @@ export namespace Manifest {
         // to include the service worker as an ES Module, which allows you to import further code.
         type?: "module"
     }
+
+    type Platform = "windows" | "mac" | "chromeos" | "linux"
+
+    type Command = {
+        suggested_key: string | Partial<{
+            [K in "default" | Platform]: string
+        }>
+        description: string,
+        global: boolean
+    }
+
+    type ContentScript = Partial<{
+        matches: string[],
+        exclude_matches: string[],
+        include_globs: string[],
+        exclude_globs: string[],
+        js: string[],
+        css: string[],
+        run_at: DocumentState,
+        all_frames: boolean
+    }>
+
+    type DocumentState = "document_idle" | "document_start" | "document_end"
 
     export namespace Chrome {
         export type SettingsOverrides = {
