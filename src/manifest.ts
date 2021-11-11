@@ -17,7 +17,9 @@ export namespace Manifest {
     type OptionalFields = Partial<{
         author: string,
         automation: string,
-        background: Background
+        background: Background,
+        chrome_settings_overrides: Chrome.SettingsOverrides,
+        chrome_url_overrides: Chrome.UrlOverrides,
     }>
 
     type Action = Partial<{
@@ -35,5 +37,43 @@ export namespace Manifest {
         service_worker: string,
         // to include the service worker as an ES Module, which allows you to import further code.
         type?: "module"
+    }
+
+    export namespace Chrome {
+        export type SettingsOverrides = {
+            homepage: string,
+            search_provider: Partial<SearchProvider>,
+            startup_pages: string[]
+        }
+
+        export type UrlOverrides = {
+            /*
+            TODO: research https://developer.chrome.com/docs/extensions/mv3/override/
+            in this page, explain For _pageToOverride_, substitute one of the following
+            - bookmarks
+            - history
+            - newTab
+
+            but in example, substitute "myPage.html"
+             */
+            pageToOverride: string | "bookmarks" | "history" | "newTab"
+        }
+
+        type SearchProvider = {
+            name: string,
+            keyword: string,
+            search_url: string,
+            favicon_url: string,
+            suggest_url: string,
+            instant_url: string,
+            image_url: string,
+            search_url_post_params: string,
+            suggest_url_post_params: string,
+            instant_url_post_params: string,
+            image_url_post_params: string,
+            alternate_urls: string[],
+            encoding: string,
+            is_default: boolean
+        }
     }
 }
