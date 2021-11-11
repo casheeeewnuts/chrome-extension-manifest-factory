@@ -1,12 +1,15 @@
 {
   "name": "chrome-extension-manifest-factory",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
+  "bin": {
+    "manifest-factory": "./dist/cli.js"
+  },
   "dependencies": {
-    "ts-node": "^10.4.0"
+    "typescript": "^3.9.5"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
-    "typescript": "^3.9.5"
+    "ts-node": "^10.4.0"
   }
 }
