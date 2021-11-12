@@ -10,7 +10,7 @@
   "repository": {
     "url": "git@github.com:CasheeeewNuts/chrome-extension-manifest-factory"
   },
-  "homepage": "git@private.github.com:CasheeeewNuts/chrome-extension-manifest-factory",
+  "homepage": "https://github.com/CasheeeewNuts/chrome-extension-manifest-factory",
   "bin": {
     "manifest-factory": "./dist/bin"
   },
