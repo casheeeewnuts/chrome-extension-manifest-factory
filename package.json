@@ -2,18 +2,29 @@
   "name": "chrome-extension-manifest-factory",
   "version": "0.3.0",
   "license": "MIT",
+  "keywords": [
+    "chrome",
+    "extension",
+    "manifest"
+  ],
+  "repository": {
+    "url": "git@github.com:CasheeeewNuts/chrome-extension-manifest-factory"
+  },
+  "homepage": "git@private.github.com:CasheeeewNuts/chrome-extension-manifest-factory",
   "bin": {
     "manifest-factory": "./dist/bin"
   },
   "dependencies": {
-    "@types/jest": "^27.0.2",
-    "jest": "^27.3.1",
-    "ts-jest": "^27.0.7",
     "typescript": "^3.9.5"
   },
   "devDependencies": {
+    "@types/jest": "^27.0.2",
     "@types/node": "^16.11.7",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7",
     "ts-node": "^10.4.0"
   },
-  "scripts": {}
+  "scripts": {
+    "prepublish": "yarn tsc"
+  }
 }
