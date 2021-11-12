@@ -1,5 +1,6 @@
-import {Manifest} from "../src/index"
+import {Manifest} from "../src"
 
+// @ts-ignore
 const json: Manifest.Json = {
     name: "",
     version: "1.0.0"
