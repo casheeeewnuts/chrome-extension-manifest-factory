@@ -10,5 +10,11 @@ describe("ManifestFactory", () => {
             expect(manifest.version).toBeDefined()
             expect(manifest).toMatchSnapshot(`${__dirname}/manifest.json.snapshot`)
         })
+
+        it('must throw Error for invalid manifest file', () => {
+            expect(() => {
+                ManifestFactory.read(`${__dirname}/invalid.manifest.json.ts`)
+            }).toThrow()
+        });
     })
 })
