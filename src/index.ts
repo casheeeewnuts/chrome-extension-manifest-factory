@@ -2,6 +2,7 @@ import * as fs from "fs"
 import * as vm from "vm"
 import * as ts from "typescript"
 import {Manifest} from "./manifest";
+export * from "./manifest"
 
 
 const VM = vm.createContext({
@@ -19,14 +20,14 @@ export function read(path: string): Manifest.Json {
     const manifestObjectOrUnknown = vm.runInContext(transpiledSourceFile.outputText, VM) as unknown
 
     if (!isManifestObject(manifestObjectOrUnknown)) {
-        throw new Error("read file could not transpile manifest.json")
+        throw new Error("read file could not transpile to manifest.json")
     }
 
     return manifestObjectOrUnknown
 }
 
-export function write(output: string, manifest: Manifest.Json): void {
-    fs.writeFileSync(output, JSON.stringify(manifest, null, 2))
+export function toFormattedString(manifest: Manifest.Json): string {
+    return JSON.stringify(manifest, null, 2)
 }
 
 function isManifestObject(obj: any): obj is Manifest.Json {

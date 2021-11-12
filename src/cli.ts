@@ -1,4 +1,6 @@
+import * as fs from "fs"
 import * as ManifestFactory from "./index"
 
 const {argv} = process
-ManifestFactory.write(argv[3], ManifestFactory.read(argv[2]))
+const manifestJson = ManifestFactory.toFormattedString(ManifestFactory.read(argv[2]))
+fs.writeFileSync(argv[3], manifestJson)
