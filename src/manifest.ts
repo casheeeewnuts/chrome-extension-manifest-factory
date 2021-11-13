@@ -27,7 +27,16 @@ export namespace Manifest {
         },
         content_capabilities: any, // TODO remove any
         content_scripts: ContentScript[],
-        content_security_policy: any, // TODO remove any
+        content_security_policy: {
+            extension_pages: string[],
+            sandbox:
+                "self"
+                | "none"
+                | "http://localhost"
+                | `http://localhost:${number}`
+                | "http://127.0.0.1"
+                | `http://127.0.0.1:${number}`
+        },
         converted_from_user_script: any, // TODO remove any
         cross_origin_embedder_policy: any, // TODO remove any
         cross_origin_opener_policy: any, // TODO remove any
