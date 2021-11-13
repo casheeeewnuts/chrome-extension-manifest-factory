@@ -48,7 +48,7 @@ export namespace Manifest {
         declarative_net_request: any, // TODO remove any
         devtools_page: string,
         differential_fingerprint: string,
-        event_rules: any[], // TODO remove any
+        event_rules: Event.Rule[],
         externally_connectable: {
             matches: string[]
         },
@@ -140,6 +140,23 @@ export namespace Manifest {
     type NaclModule = {
         path: string,
         mime_type: string
+    }
+
+    namespace Event {
+        export type Rule = {
+            event: string,
+            actions: Action[]
+            conditions: Condition
+        }
+
+        interface Action {
+            type: string
+        }
+
+        interface Condition {
+            type: string,
+            css: string[]
+        }
     }
 
     export namespace Chrome {
