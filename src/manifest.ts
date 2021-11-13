@@ -38,8 +38,12 @@ export namespace Manifest {
                 | `http://127.0.0.1:${number}`
         },
         converted_from_user_script: any, // TODO remove any
-        cross_origin_embedder_policy: any, // TODO remove any
-        cross_origin_opener_policy: any, // TODO remove any
+        cross_origin_embedder_policy: {
+            value: string | "require-corp"
+        },
+        cross_origin_opener_policy: {
+            value: string | "same-origin"
+        },
         current_locale: any, // TODO remove any
         declarative_net_request: any, // TODO remove any
         devtools_page: string,
