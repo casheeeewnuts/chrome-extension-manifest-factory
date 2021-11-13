@@ -25,8 +25,39 @@ export namespace Manifest {
         commands: {
             [K: string]: Command
         },
-        content_capabilities: string,
+        content_capabilities: any, // TODO remove any
         content_scripts: ContentScript[],
+        content_security_policy: {
+            extension_pages: string[],
+            sandbox:
+                string
+                | "self"
+                | "none"
+                | "http://localhost"
+                | "http://127.0.0.1"
+        },
+        converted_from_user_script: any, // TODO remove any
+        cross_origin_embedder_policy: {
+            value: string | "require-corp"
+        },
+        cross_origin_opener_policy: {
+            value: string | "same-origin"
+        },
+        current_locale: any, // TODO remove any
+        declarative_net_request: any, // TODO remove any
+        devtools_page: string,
+        differential_fingerprint: string,
+        event_rules: Event.Rule[],
+        externally_connectable: {
+            matches: string[]
+        },
+        file_browser_handlers: FileBrowserHandler[],
+        file_system_provider_capabilities: {
+            configurable?: boolean,
+            watchable?: boolean,
+            multiple_mounts?: boolean,
+            source?: "file" | "device" | "network"
+        },
         homepage_url: string
         host_permissions: Chrome.Permission[],
         import: Module[],
@@ -36,7 +67,7 @@ export namespace Manifest {
         minimum_chrome_version: string,
         nacl_modules: NaclModule[]
         natively_connectable: string,
-        oauth2: string,
+        oauth2: any, //TODO remove any
         offline_enabled: boolean,
         omnibox: {
             keyword: string,
@@ -50,21 +81,31 @@ export namespace Manifest {
         permissions: Chrome.Permission,
         platforms: any, // TODO remove any
         replacement_web_app: any // TODO remove any
-        requirements: string,
-        sandbox: any[],
+        requirements: {
+            "3D"?: {
+                features: string[]
+            },
+            plugins?: {
+                [K: string]: boolean
+            }
+        },
+        sandbox: {
+            pages: string[],
+            // default content security policy is "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
+            content_security_policy?: string
+        },
         short_name: string,
         storage: {
             // declared as JSON Schema https://developer.chrome.com/docs/extensions/mv3/manifest/storage/
             managed_schema: string
         },
-        system_indicator: any,
+        system_indicator: any, // TODO remove any
         tts_engine: {
             voices: Chrome.Tts.Voice[]
         },
         update_url: string,
         version_name: string,
-        web_accessible_resources: any[]
-
+        web_accessible_resources: WebAccessibleResource[]
     }>
 
     type Action = Partial<{
@@ -114,6 +155,36 @@ export namespace Manifest {
     type NaclModule = {
         path: string,
         mime_type: string
+    }
+
+    type FileBrowserHandler = {
+        id: string,
+        default_title: string,
+        file_filters: string[]
+    }
+
+    type WebAccessibleResource = {
+        resources: string[],
+        matches: string[],
+        extension_ids: string[],
+        use_dynamic_url?: boolean
+    }
+
+    namespace Event {
+        export type Rule = {
+            event: string,
+            actions: Action[]
+            conditions: Condition
+        }
+
+        interface Action {
+            type: string
+        }
+
+        interface Condition {
+            type: string,
+            css: string[]
+        }
     }
 
     export namespace Chrome {

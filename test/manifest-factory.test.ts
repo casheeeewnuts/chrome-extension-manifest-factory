@@ -9,9 +9,7 @@ describe("ManifestFactory", () => {
             expect(manifest.manifest_version).toBeDefined()
             expect(manifest.name).toBeDefined()
             expect(manifest.version).toBeDefined()
-            expect(manifest).toMatchSnapshot(`${__dirname}/manifest.json.snapshot`)
-
-            console.log(ManifestFactory.toString(manifest))
+            expect(manifest).toMatchSnapshot()
         })
 
         it('must throw Error for invalid manifest file', () => {
