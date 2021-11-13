@@ -52,7 +52,12 @@ export namespace Manifest {
             matches: string[]
         },
         file_browser_handlers: FileBrowserHandler[],
-        file_system_provider_capabilities: any, // TODO remove any
+        file_system_provider_capabilities: {
+            configurable?: boolean,
+            watchable?: boolean,
+            multiple_mounts?: boolean,
+            source?: "file" | "device" | "network"
+        },
         homepage_url: string
         host_permissions: Chrome.Permission[],
         import: Module[],
