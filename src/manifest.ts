@@ -105,7 +105,7 @@ export namespace Manifest {
         },
         update_url: string,
         version_name: string,
-        web_accessible_resources: any[] // TODO remove any
+        web_accessible_resources: WebAccessibleResource[]
     }>
 
     type Action = Partial<{
@@ -161,6 +161,13 @@ export namespace Manifest {
         id: string,
         default_title: string,
         file_filters: string[]
+    }
+
+    type WebAccessibleResource = {
+        resources: string[],
+        matches: string[],
+        extension_ids: string[],
+        use_dynamic_url?: boolean
     }
 
     namespace Event {
