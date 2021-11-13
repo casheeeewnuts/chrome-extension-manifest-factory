@@ -81,7 +81,14 @@ export namespace Manifest {
         permissions: Chrome.Permission,
         platforms: any, // TODO remove any
         replacement_web_app: any // TODO remove any
-        requirements: string,
+        requirements: {
+            "3D"?: {
+                features: string[]
+            },
+            plugins?: {
+                [K: string]: boolean
+            }
+        },
         sandbox: any[], //TODO remove any
         short_name: string,
         storage: {
