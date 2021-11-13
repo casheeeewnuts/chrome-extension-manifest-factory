@@ -52,7 +52,7 @@ export namespace Manifest {
         externally_connectable: {
             matches: string[]
         },
-        file_browser_handlers: string[],
+        file_browser_handlers: FileBrowserHandler[],
         file_system_provider_capabilities: any, // TODO remove any
         homepage_url: string
         host_permissions: Chrome.Permission[],
@@ -140,6 +140,12 @@ export namespace Manifest {
     type NaclModule = {
         path: string,
         mime_type: string
+    }
+
+    type FileBrowserHandler = {
+        id: string,
+        default_title: string,
+        file_filters: string[]
     }
 
     namespace Event {
