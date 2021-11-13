@@ -89,7 +89,11 @@ export namespace Manifest {
                 [K: string]: boolean
             }
         },
-        sandbox: any[], //TODO remove any
+        sandbox: {
+            pages: string[],
+            // default content security policy is "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
+            content_security_policy?: string
+        },
         short_name: string,
         storage: {
             // declared as JSON Schema https://developer.chrome.com/docs/extensions/mv3/manifest/storage/
