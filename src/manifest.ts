@@ -25,8 +25,22 @@ export namespace Manifest {
         commands: {
             [K: string]: Command
         },
-        content_capabilities: string,
+        content_capabilities: any, // TODO remove any
         content_scripts: ContentScript[],
+        content_security_policy: any, // TODO remove any
+        converted_from_user_script: any, // TODO remove any
+        cross_origin_embedder_policy: any, // TODO remove any
+        cross_origin_opener_policy: any, // TODO remove any
+        current_locale: any, // TODO remove any
+        declarative_net_request: any, // TODO remove any
+        devtools_page: string,
+        differential_fingerprint: string,
+        event_rules: any[], // TODO remove any
+        externally_connectable: {
+            matches: string[]
+        },
+        file_browser_handlers: string[],
+        file_system_provider_capabilities: any, // TODO remove any
         homepage_url: string
         host_permissions: Chrome.Permission[],
         import: Module[],
@@ -36,7 +50,7 @@ export namespace Manifest {
         minimum_chrome_version: string,
         nacl_modules: NaclModule[]
         natively_connectable: string,
-        oauth2: string,
+        oauth2: any, //TODO remove any
         offline_enabled: boolean,
         omnibox: {
             keyword: string,
@@ -51,20 +65,19 @@ export namespace Manifest {
         platforms: any, // TODO remove any
         replacement_web_app: any // TODO remove any
         requirements: string,
-        sandbox: any[],
+        sandbox: any[], //TODO remove any
         short_name: string,
         storage: {
             // declared as JSON Schema https://developer.chrome.com/docs/extensions/mv3/manifest/storage/
             managed_schema: string
         },
-        system_indicator: any,
+        system_indicator: any, // TODO remove any
         tts_engine: {
             voices: Chrome.Tts.Voice[]
         },
         update_url: string,
         version_name: string,
-        web_accessible_resources: any[]
-
+        web_accessible_resources: any[] // TODO remove any
     }>
 
     type Action = Partial<{
