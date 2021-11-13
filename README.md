@@ -16,8 +16,8 @@ import {Manifest} from "chrome-extension-manifest-factory"
 
 const json: Manifest.Json = {
   // required fields
-  manifest_version: 3 // currently only v3 series are supported.
-  name: "Your Chrome Extension Name"
+  manifest_version: 3, // currently only v3 series are supported.
+  name: "Your Chrome Extension Name",
   version: "1.0.0"
   
   // optional fields...

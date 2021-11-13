@@ -1,9 +1,10 @@
 import * as ManifestFactory from "../src"
+import * as fs from "fs"
 
 describe("ManifestFactory", () => {
     describe("read()", () => {
         it("should return object as Manifest.Json", () => {
-            const manifest = ManifestFactory.transpile(`${__dirname}/manifest.json.ts`)
+            const manifest = ManifestFactory.transpile(fs.readFileSync(`${__dirname}/manifest.json.ts`))
 
             expect(manifest.manifest_version).toBeDefined()
             expect(manifest.name).toBeDefined()

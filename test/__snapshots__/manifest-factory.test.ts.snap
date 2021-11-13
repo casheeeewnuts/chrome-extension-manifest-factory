@@ -7,3 +7,11 @@ Object {
   "version": "1.0.0",
 }
 `;
+
+exports[`ManifestFactory read() should return object as Manifest.Json: /home/nuts/Projects/private/node/chrome-extension-manifest-factory/test/manifest.json.snapshot 1`] = `
+Object {
+  "manifest_version": 3,
+  "name": "",
+  "version": "1.0.0",
+}
+`;
